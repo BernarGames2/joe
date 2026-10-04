@@ -1,0 +1,90 @@
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  height: var(--status-h);
+  background: var(--tijolo);
+  border-bottom: 1px solid var(--tijolo-2);
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 13px;
+  color: var(--giz);
+}
+
+.dentro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 100%;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status strong {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.ponto {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6f6c66;
+}
+
+.aceso {
+  background: var(--mostarda);
+  box-shadow: 0 0 10px rgb(255 200 58 / 0.6);
+}
+
+/* Animação 3: ponto pulsando quando a chapa está acesa. */
+@media (prefers-reduced-motion: no-preference) {
+  .aceso {
+    animation: pulsar 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes pulsar {
+  50% {
+    transform: scale(0.7);
+    opacity: 0.55;
+  }
+}
+
+.tel {
+  display: none;
+  color: var(--giz-2);
+  text-decoration: none;
+  padding-block: 8px;
+}
+
+@media (hover: hover) {
+  .tel:hover {
+    color: var(--giz);
+  }
+}
+
+@media (min-width: 768px) {
+  .tel {
+    display: block;
+  }
+}
+
+@media (max-width: 380px) {
+  .barra {
+    font-size: 12px;
+  }
+
+  .status {
+    gap: 8px;
+  }
+}

@@ -1,0 +1,279 @@
+.secao {
+  position: relative;
+}
+
+.cabeca {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.sub {
+  font-size: 18px;
+  color: var(--giz-2);
+}
+
+.grade {
+  display: grid;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .grade {
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 48px;
+  }
+}
+
+/* ---------- abas ---------- */
+
+.abas {
+  position: sticky;
+  top: var(--status-h);
+  z-index: 20;
+  margin-inline: calc(-1 * var(--gutter));
+  padding: 8px var(--gutter);
+  background: var(--carvao);
+  border-bottom: 1px solid var(--tijolo-2);
+}
+
+@media (min-width: 1024px) {
+  .abas {
+    position: static;
+    margin-inline: 0;
+    padding: 0 0 8px;
+    background: none;
+  }
+}
+
+.abas ul {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.aba {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 2px solid var(--tijolo-2);
+  border-radius: var(--raio);
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--giz-2);
+}
+
+@media (hover: hover) {
+  .aba:hover {
+    color: var(--giz);
+    border-color: var(--giz-2);
+  }
+}
+
+.aba[aria-current="true"] {
+  color: var(--carvao);
+  background: var(--mostarda);
+  border-color: var(--mostarda);
+}
+
+/* ---------- categorias e itens ---------- */
+
+.categoria {
+  margin-top: 28px;
+  scroll-margin-top: calc(var(--topo) + 72px);
+}
+
+.catTitulo {
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mostarda);
+  padding-bottom: 10px;
+}
+
+.itens {
+  border: 1px solid var(--tijolo-2);
+  border-radius: var(--raio);
+  background: var(--tijolo);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 80px;
+  padding: 14px 16px;
+}
+
+@media (min-width: 768px) {
+  .item {
+    padding-inline: 24px;
+  }
+}
+
+.item + .item {
+  border-top: 1px dashed var(--tijolo-2);
+}
+
+.miniatura {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--raio);
+  object-fit: cover;
+}
+
+.itemCorpo {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemLinha {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.itemN {
+  display: none;
+  flex: none;
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 13px;
+  color: var(--giz-2);
+}
+
+@media (min-width: 420px) {
+  .itemN {
+    display: inline;
+  }
+}
+
+.itemNome {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.leader {
+  flex: 1;
+  min-width: 16px;
+  border-bottom: 2px dotted rgb(185 180 168 / 0.45);
+  transform: translateY(-5px);
+}
+
+.qtd {
+  flex: none;
+  text-align: right;
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--mostarda);
+}
+
+.desc {
+  margin-top: 4px;
+  font-size: 15px;
+  color: var(--giz-2);
+}
+
+.mais {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--brasa);
+  color: var(--carvao);
+  transition:
+    transform 160ms ease-out,
+    background-color 160ms ease-out,
+    box-shadow 160ms ease-out;
+}
+
+@media (hover: hover) {
+  .mais:hover {
+    background: var(--brasa-esc);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .mais:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgb(0 0 0 / 0.4);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mais:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+}
+
+/* ---------- barra inferior do celular ---------- */
+
+/* Fixa no rodapé da tela, só enquanto o cardápio está à vista (o JS liga .barraVisivel). */
+.barra {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 45;
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--carvao) 70%, rgb(14 15 16 / 0));
+  visibility: hidden;
+}
+
+.barraVisivel {
+  visibility: visible;
+}
+
+@media (max-width: 1023px) {
+  .menu {
+    padding-bottom: 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .barra {
+    display: none;
+  }
+}
+
+.barraBotao {
+  width: 100%;
+  min-height: 52px;
+  font-size: 17px;
+}
+
+.selo {
+  display: inline-block;
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pula {
+    animation: pular 160ms ease-out;
+  }
+}
+
+@keyframes pular {
+  50% {
+    transform: translateY(-5px) scale(1.15);
+  }
+}

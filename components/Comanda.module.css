@@ -1,0 +1,423 @@
+/* Desktop: coluna sticky de 380px. Celular/tablet: bottom sheet (fechado por padrão). */
+
+.painel {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .painel {
+    display: block;
+    position: sticky;
+    top: calc(var(--topo) + 20px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .aberto {
+    display: block;
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 75;
+    max-height: 92vh;
+    max-height: 92dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 8px var(--gutter) calc(24px + env(safe-area-inset-bottom));
+    background: var(--tijolo);
+    border-top: 2px solid var(--tijolo-2);
+    box-shadow: 0 -12px 40px rgb(0 0 0 / 0.6);
+  }
+}
+
+.fundo {
+  position: fixed;
+  inset: 0;
+  z-index: 74;
+  background: rgb(0 0 0 / 0.72);
+}
+
+.sheetTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 1024px) {
+  .sheetTopo {
+    display: none;
+  }
+}
+
+.sheetTitulo {
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  color: var(--giz-2);
+}
+
+.fechar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 2px solid var(--tijolo-2);
+  border-radius: var(--raio);
+  background: var(--carvao);
+  color: var(--giz);
+  font-weight: 700;
+}
+
+/* ---------- papel ---------- */
+
+.papelWrap {
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.papel {
+  --dente: 16px;
+  position: relative;
+  padding: 22px 20px 40px;
+}
+
+@media (min-width: 1024px) {
+  .papel {
+    max-height: calc(100vh - var(--topo) - 48px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}
+
+.topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed rgb(27 26 23 / 0.4);
+  font-family: var(--font-mono), "Courier New", monospace;
+}
+
+.titulo {
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+
+.data {
+  font-size: 13px;
+  color: var(--tinta-2);
+}
+
+.corpo {
+  position: relative;
+  padding-block: 14px;
+  border-bottom: 2px dashed rgb(27 26 23 / 0.4);
+}
+
+.vazia {
+  padding: 18px 4px;
+  font-family: var(--font-hand), "Comic Sans MS", cursive;
+  font-size: 26px;
+  line-height: 1.15;
+  color: rgb(27 26 23 / 0.78);
+  transform: rotate(-1.5deg);
+}
+
+.linhas {
+  display: grid;
+  gap: 10px;
+}
+
+.linha {
+  font-family: var(--font-mono), "Courier New", monospace;
+}
+
+/* Animação 4: a linha "se escreve" no papel. */
+@media (prefers-reduced-motion: no-preference) {
+  .escrevendo {
+    animation: escrever 280ms ease-out both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .escrevendo {
+    animation: aparecer 120ms ease-out both;
+  }
+}
+
+@keyframes escrever {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+}
+
+.linhaTopo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.linhaTexto {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.3;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.pontilhado {
+  flex: 1;
+  min-width: 10px;
+  align-self: flex-end;
+  margin-bottom: 15px;
+  border-bottom: 2px dotted rgb(27 26 23 / 0.5);
+}
+
+.controles {
+  display: inline-flex;
+  flex: none;
+}
+
+.ctrl {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--raio);
+  background: transparent;
+  color: var(--tinta);
+}
+
+@media (hover: hover) {
+  .ctrl:hover {
+    background: rgb(27 26 23 / 0.08);
+  }
+}
+
+.ctrl:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.obs {
+  display: block;
+  width: 100%;
+  margin-top: 2px;
+  padding: 4px 6px 2px;
+  border: 0;
+  border-bottom: 1.5px solid rgb(27 26 23 / 0.25);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-hand), "Comic Sans MS", cursive;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--tinta);
+}
+
+.obs::placeholder {
+  color: rgb(27 26 23 / 0.7);
+}
+
+.obs:focus-visible {
+  border-bottom-color: var(--tinta);
+}
+
+/* Animação 5: carimbo ENVIADA. */
+.carimbo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  rotate: -8deg;
+  padding: 6px 14px;
+  border: 5px double var(--carimbo);
+  border-radius: 4px;
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: var(--carimbo);
+  opacity: 0.82;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .batendo {
+    animation:
+      bater 220ms cubic-bezier(0.3, 1.5, 0.5, 1) both,
+      tremer 180ms 220ms linear;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .batendo {
+    animation: aparecer 120ms ease-out both;
+  }
+}
+
+@keyframes bater {
+  from {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0.82;
+  }
+}
+
+@keyframes tremer {
+  25% {
+    transform: translate(1.5px, -1px);
+  }
+  50% {
+    transform: translate(-1.5px, 1px);
+  }
+  75% {
+    transform: translate(1px, 0.5px);
+  }
+}
+
+.erro {
+  margin-top: 6px;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--carimbo);
+}
+
+/* ---------- campos ---------- */
+
+.campos {
+  display: grid;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.campo {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.rotulo {
+  display: block;
+  padding: 0;
+  margin-bottom: 6px;
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.entrada {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 2px solid rgb(27 26 23 / 0.55);
+  border-radius: var(--raio);
+  background: rgb(255 255 255 / 0.45);
+  color: var(--tinta);
+  font-size: 16px;
+}
+
+.entrada[aria-invalid="true"] {
+  border-color: var(--carimbo);
+}
+
+.area {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.segmentado {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid var(--tinta);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+.segmento {
+  position: relative;
+  display: block;
+}
+
+.segmento + .segmento {
+  border-left: 2px solid var(--tinta);
+}
+
+.segmento input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.segmento span {
+  display: grid;
+  place-items: center;
+  min-height: 46px;
+  font-weight: 700;
+  color: var(--tinta);
+}
+
+.segmento input:checked + span {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.segmento input:focus-visible + span {
+  outline: 3px solid var(--mostarda);
+  outline-offset: -5px;
+}
+
+.aviso {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--tinta-2);
+}
+
+.enviar {
+  width: 100%;
+  margin-top: 12px;
+  min-height: 56px;
+  padding-inline: 14px;
+  font-size: 16px;
+}
+
+.limpar {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  border: 0;
+  background: none;
+  font-weight: 700;
+  color: var(--tinta);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

@@ -1,0 +1,353 @@
+:root {
+  --carvao: #0e0f10;
+  --tijolo: #191b1c;
+  --tijolo-2: #232628;
+  --brasa: #f26b1d;
+  --brasa-esc: #c9500c;
+  --mostarda: #ffc83a;
+  --papel: #f2e8d5;
+  --papel-2: #e6d9bf;
+  --tinta: #1b1a17;
+  --giz: #f5f1e8;
+  --giz-2: #b9b4a8;
+  --carimbo: #c8281e;
+  --zap: #13803e;
+
+  --tinta-2: rgb(27 26 23 / 0.74);
+  --container: 1180px;
+  --gutter: 16px;
+  --raio: 6px;
+  --status-h: 36px;
+  --header-h: 0px;
+  --topo: calc(var(--status-h) + var(--header-h));
+
+  --tijolos: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='56' viewBox='0 0 152 56'%3E%3Cg fill='%23141617'%3E%3Crect x='2' y='2' width='74' height='26'/%3E%3Crect x='78' y='2' width='74' height='26' fill='%23131415'/%3E%3Crect x='-36' y='30' width='74' height='26' fill='%23151718'/%3E%3Crect x='40' y='30' width='74' height='26'/%3E%3Crect x='116' y='30' width='74' height='26' fill='%23151718'/%3E%3C/g%3E%3Cg fill='%23232628' fill-opacity='.7'%3E%3Crect width='152' height='2'/%3E%3Crect y='28' width='152' height='2'/%3E%3Crect width='2' height='28'/%3E%3Crect x='76' width='2' height='28'/%3E%3Crect x='38' y='30' width='2' height='26'/%3E%3Crect x='114' y='30' width='2' height='26'/%3E%3C/g%3E%3C/svg%3E");
+  --ruido: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23r)' opacity='.04'/%3E%3C/svg%3E");
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 72px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--topo) + 16px);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--carvao);
+  background-image: var(--tijolos);
+  background-size: 152px 56px;
+  color: var(--giz);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-x: clip;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 17.5px;
+  }
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--mostarda);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--carvao);
+}
+
+::selection {
+  background: var(--mostarda);
+  color: var(--tinta);
+}
+
+/* ---------- tipografia ---------- */
+
+.display {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.92;
+  font-optical-sizing: auto;
+}
+
+.mono {
+  font-family: var(--font-mono), "Courier New", monospace;
+}
+
+.mao {
+  font-family: var(--font-hand), "Comic Sans MS", cursive;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mostarda);
+}
+
+.titulo-secao {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  font-size: clamp(40px, 6.4vw, 76px);
+  text-wrap: balance;
+}
+
+.nota-mono {
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--giz-2);
+}
+
+/* ---------- layout ---------- */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.secao {
+  padding-block: 72px;
+}
+
+@media (min-width: 1024px) {
+  .secao {
+    padding-block: 96px;
+  }
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pular {
+  position: absolute;
+  left: 8px;
+  top: -100px;
+  z-index: 100;
+  padding: 12px 16px;
+  background: var(--mostarda);
+  color: var(--tinta);
+  font-weight: 700;
+  border-radius: var(--raio);
+  text-decoration: none;
+}
+
+.pular:focus {
+  top: 8px;
+}
+
+/* Recursos que só existem com JavaScript. A classe .js é posta no <html> por um script inline. */
+html:not(.js) .so-js {
+  display: none !important;
+}
+
+html.js .sem-js {
+  display: none !important;
+}
+
+/* ---------- papel da comanda ---------- */
+
+.papel {
+  background-color: var(--papel);
+  background-image:
+    radial-gradient(circle at 88% 12%, rgb(216 166 48 / 0.06) 0 34px, rgb(216 166 48 / 0.1) 40px, rgb(216 166 48 / 0.04) 44px, transparent 48px),
+    var(--ruido);
+  color: var(--tinta);
+}
+
+.serrilhado {
+  --dente: 14px;
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--dente) 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--dente) 100%;
+}
+
+.sombra-papel {
+  filter: drop-shadow(0 14px 22px rgb(0 0 0 / 0.5)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.35));
+}
+
+/* ---------- botões ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 2px solid transparent;
+  border-radius: var(--raio);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  transition:
+    transform 160ms ease-out,
+    box-shadow 160ms ease-out,
+    background-color 160ms ease-out;
+}
+
+.btn svg {
+  flex: none;
+}
+
+.btn-brasa {
+  background: var(--brasa);
+  color: var(--carvao);
+}
+
+@media (hover: hover) {
+  .btn-brasa:hover {
+    background: var(--brasa-esc);
+  }
+}
+
+.btn-zap {
+  background: var(--zap);
+  color: #fff;
+}
+
+.btn-carvao {
+  background: var(--carvao);
+  color: var(--giz);
+}
+
+.btn-borda {
+  background: transparent;
+  border-color: currentColor;
+}
+
+.btn-borda-giz {
+  background: transparent;
+  color: var(--giz);
+  border-color: var(--tijolo-2);
+}
+
+@media (hover: hover) {
+  .btn-borda-giz:hover {
+    border-color: var(--giz-2);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .btn:hover,
+  .eleva:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgb(0 0 0 / 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+}
+
+.link-seta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--mostarda);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+@media (hover: hover) {
+  .link-seta:hover {
+    color: var(--mostarda);
+  }
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+  }
+}

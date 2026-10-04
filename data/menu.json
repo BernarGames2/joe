@@ -1,0 +1,14 @@
+{
+  "categorias": [
+    { "id": "burgers", "nome": "Burgers", "itens": [
+      { "id": "joe-burger", "nome": "Joe Burger", "desc": "", "price": null, "photo": null, "exemplo": true },
+      { "id": "burger-especial", "nome": "Burger Especial", "desc": "", "price": null, "photo": null, "exemplo": true },
+      { "id": "gigante", "nome": "Gigante", "desc": "", "price": null, "photo": null, "exemplo": true },
+      { "id": "burger-vip", "nome": "Burger Vip", "desc": "", "price": null, "photo": null, "exemplo": true },
+      { "id": "mega-burger", "nome": "Mega Burger", "desc": "", "price": null, "photo": null, "exemplo": true }
+    ]},
+    { "id": "batata", "nome": "Batata frita", "itens": [
+      { "id": "batata-frita", "nome": "Batata frita", "desc": "", "price": null, "photo": null, "exemplo": true }
+    ]}
+  ]
+}

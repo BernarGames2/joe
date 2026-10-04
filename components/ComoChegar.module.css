@@ -1,0 +1,136 @@
+.secao {
+  border-top: 1px solid var(--tijolo-2);
+}
+
+.grade {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+@media (min-width: 1024px) {
+  .grade {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    margin-top: 48px;
+  }
+}
+
+.endereco {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 20px;
+  padding: 28px 24px;
+  border: 1px solid var(--tijolo-2);
+  border-radius: var(--raio);
+  background: var(--tijolo);
+}
+
+@media (min-width: 768px) {
+  .endereco {
+    padding: 40px;
+  }
+}
+
+.pin {
+  color: var(--brasa);
+}
+
+.address {
+  display: grid;
+  gap: 6px;
+  font-style: normal;
+  font-size: 18px;
+  color: var(--giz-2);
+}
+
+.rua {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 900;
+  font-size: clamp(32px, 4.6vw, 48px);
+  line-height: 0.98;
+  text-transform: uppercase;
+  color: var(--giz);
+}
+
+.horarios {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.subtitulo {
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mostarda);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 16px;
+}
+
+.tabela th,
+.tabela td {
+  padding: 12px 12px;
+  border-bottom: 1px dashed var(--tijolo-2);
+}
+
+.tabela th {
+  text-align: left;
+  font-weight: 700;
+}
+
+.tabela td {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.fechado {
+  color: var(--giz-2);
+}
+
+.hoje th,
+.hoje td {
+  background: var(--mostarda);
+  color: var(--carvao);
+  border-bottom-color: var(--mostarda);
+}
+
+.selo {
+  margin-left: 10px;
+  padding: 2px 6px;
+  border: 1.5px solid currentColor;
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.nota {
+  margin-top: 4px;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+@media (max-width: 767px) {
+  .botoes {
+    display: grid;
+  }
+
+  .botoes .btn,
+  .botoes a {
+    width: 100%;
+  }
+}

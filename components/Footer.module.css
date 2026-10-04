@@ -1,0 +1,93 @@
+.footer {
+  background: var(--carvao);
+  border-top: 1px solid var(--tijolo-2);
+  padding-block: 56px 32px;
+  font-size: 15px;
+  color: var(--giz-2);
+}
+
+@media (max-width: 1023px) {
+  .footer {
+    padding-bottom: 104px;
+  }
+}
+
+.grade {
+  display: grid;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grade {
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  }
+}
+
+.marca {
+  display: flex;
+  align-self: start;
+  align-items: center;
+  gap: 14px;
+}
+
+.nome {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--giz);
+}
+
+.bloco {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.rotulo {
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mostarda);
+}
+
+.dias {
+  color: var(--giz);
+}
+
+.links {
+  display: grid;
+  gap: 2px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--giz);
+  text-decoration-color: var(--tijolo-2);
+  text-underline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .links a:hover {
+    color: var(--mostarda);
+  }
+}
+
+.final {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--tijolo-2);
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 13px;
+}

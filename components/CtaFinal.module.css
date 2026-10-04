@@ -1,0 +1,72 @@
+.cta {
+  position: relative;
+  overflow: hidden;
+  background: var(--brasa);
+  color: var(--carvao);
+  padding-block: 72px;
+}
+
+@media (min-width: 1024px) {
+  .cta {
+    padding-block: 104px;
+  }
+}
+
+.carimbo {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .carimbo {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: max(32px, calc((100vw - var(--container)) / 2));
+    width: 400px;
+    translate: 0 -50%;
+    rotate: -7deg;
+    opacity: 0.94;
+    pointer-events: none;
+  }
+}
+
+.dentro {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+}
+
+.titulo {
+  font-size: clamp(48px, 8.4vw, 112px);
+  max-width: 12ch;
+}
+
+.sub {
+  font-size: 19px;
+  font-weight: 500;
+  max-width: 40ch;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.borda {
+  color: var(--carvao);
+}
+
+@media (hover: hover) {
+  .borda:hover {
+    background: rgb(14 15 16 / 0.08);
+  }
+}
+
+.cta :focus-visible {
+  outline-color: var(--carvao);
+  box-shadow: 0 0 0 2px var(--mostarda);
+}

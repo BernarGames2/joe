@@ -1,0 +1,43 @@
+.botao {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--zap);
+  color: #fff;
+  box-shadow: 0 8px 22px rgb(0 0 0 / 0.5);
+  visibility: hidden;
+}
+
+.visivel {
+  visibility: visible;
+}
+
+@media (min-width: 1024px) {
+  .botao {
+    display: none;
+  }
+}
+
+.selo {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: grid;
+  place-items: center;
+  min-width: 24px;
+  height: 24px;
+  padding-inline: 6px;
+  border-radius: 12px;
+  background: var(--mostarda);
+  color: var(--carvao);
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 13px;
+  border: 2px solid var(--carvao);
+}

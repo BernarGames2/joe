@@ -1,0 +1,106 @@
+.secao {
+  border-top: 1px solid var(--tijolo-2);
+}
+
+.grade {
+  display: grid;
+  gap: 40px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .grade {
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 64px;
+    margin-top: 48px;
+  }
+}
+
+.nota {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+}
+
+.numero {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 900;
+  font-size: clamp(120px, 30vw, 160px);
+  line-height: 0.8;
+  padding-bottom: 0.14em;
+  color: var(--mostarda);
+}
+
+.estrelas {
+  display: flex;
+  gap: 4px;
+}
+
+.legenda {
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 14px;
+  color: var(--giz-2);
+}
+
+.todas {
+  margin-top: 8px;
+}
+
+.lista {
+  display: grid;
+  gap: 28px;
+}
+
+@media (min-width: 768px) {
+  .lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lista li:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.itemWrap {
+  transition: transform 160ms ease-out;
+}
+
+.itemWrap:nth-child(1) {
+  rotate: -1deg;
+}
+
+.itemWrap:nth-child(2) {
+  rotate: 1.2deg;
+}
+
+.itemWrap:nth-child(3) {
+  rotate: -0.6deg;
+}
+
+.item {
+  --dente: 16px;
+  margin: 0;
+  height: 100%;
+  padding: 24px 24px 40px;
+}
+
+.citacao {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.lista li:first-child .citacao {
+  font-size: clamp(32px, 4.4vw, 44px);
+}
+
+.credito {
+  margin-top: 14px;
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-size: 14px;
+  color: var(--tinta-2);
+}

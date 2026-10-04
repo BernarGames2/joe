@@ -1,0 +1,81 @@
+.secao {
+  padding-top: 32px;
+}
+
+@media (min-width: 1024px) {
+  .secao {
+    padding-top: 48px;
+  }
+}
+
+.passos {
+  display: grid;
+  gap: 40px;
+  margin-top: 28px;
+}
+
+@media (min-width: 768px) {
+  .passos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .passos {
+    gap: 40px;
+  }
+}
+
+.passoWrap {
+  position: relative;
+  transition: transform 160ms ease-out;
+}
+
+.passoWrap:nth-child(1) {
+  rotate: -1.6deg;
+}
+
+.passoWrap:nth-child(2) {
+  rotate: 1.2deg;
+}
+
+.passoWrap:nth-child(3) {
+  rotate: -0.8deg;
+}
+
+.clipe {
+  position: absolute;
+  top: -18px;
+  right: 36px;
+  z-index: 1;
+}
+
+.passo {
+  --dente: 16px;
+  height: 100%;
+  padding: 26px 24px 36px;
+}
+
+.numero {
+  display: block;
+  font-family: var(--font-mono), "Courier New", monospace;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--carimbo);
+  letter-spacing: 0.06em;
+}
+
+.titulo {
+  margin-top: 6px;
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.texto {
+  margin-top: 10px;
+  color: var(--tinta-2);
+}

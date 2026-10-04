@@ -1,0 +1,39 @@
+.secao {
+  border-top: 1px solid var(--tijolo-2);
+  background: linear-gradient(rgb(25 27 28 / 0.55), rgb(14 15 16 / 0));
+}
+
+.grade {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grade {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 64px;
+  }
+}
+
+.texto {
+  display: grid;
+  gap: 16px;
+}
+
+.corpo {
+  max-width: 44ch;
+  font-size: 18px;
+  color: var(--giz);
+}
+
+@media (min-width: 768px) {
+  .corpo {
+    font-size: 20px;
+  }
+}
+
+.arte {
+  width: min(100%, 560px);
+  margin-inline: auto;
+}

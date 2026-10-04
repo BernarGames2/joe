@@ -1,0 +1,36 @@
+.svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Animação 1: as camadas caem e se empilham. O desenho já está montado no HTML;
+   sem animação (ou sem CSS de movimento) ele aparece pronto. */
+@media (prefers-reduced-motion: no-preference) {
+  .montado .camada {
+    animation: cair 280ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+    animation-delay: calc(var(--i) * 70ms);
+  }
+}
+
+@keyframes cair {
+  from {
+    transform: translateY(-24px);
+    opacity: 0;
+  }
+}
+
+.legenda {
+  fill: none;
+  stroke: var(--mostarda);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.legenda text {
+  fill: var(--mostarda);
+  stroke: none;
+  font-family: var(--font-hand), "Comic Sans MS", cursive;
+  font-size: 34px;
+}
